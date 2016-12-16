@@ -1,17 +1,5 @@
-<%= form_for(group) do |f| %>
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+<%= form_for [@institute, group], layout: 'basic' do |f| %>
+  <%= f.text_field :number, label: 'Номер группы', placeholder: 'Например, КИ16-11Б' %>
 
-      <ul>
-      <% group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Отправить' %>
 <% end %>

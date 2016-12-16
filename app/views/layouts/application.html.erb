@@ -59,6 +59,7 @@
 
     <div class="container">
       <% if flash[:notice] %>
+        <br />
         <div class="row">
           <% if flash[:notice].is_a?(Array) %>
             <% flash[:notice].each do |item| %>
@@ -70,6 +71,7 @@
         </div>
       <% end %>
       <% if flash[:alert] %>
+        <br />
         <div class="row">
           <% if flash[:alert].is_a?(Array) %>
             <% flash[:alert].each do |item| %>

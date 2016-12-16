@@ -8,6 +8,7 @@ class InstitutesController < ApplicationController
 
   # GET /institutes/1
   def show
+    @groups = @institute.groups
   end
 
   # GET /institutes/new

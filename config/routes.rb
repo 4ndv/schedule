@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   root to: 'institutes#index'
 
-  resources :institutes
-  resources :groups
+  resources :institutes do
+    resources :groups, except: :index
+  end
+  
   resources :items
   resources :lessons
   resources :teachers

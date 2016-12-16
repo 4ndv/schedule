@@ -4,4 +4,14 @@
       <h1><%= @institute.name %> <%= link_to 'Изменить', edit_institute_path(@institute), class: 'btn btn-default' %></h1>
     </div>
   </div>
+  <div class="col-md-12">
+    <h2>Группы <%= link_to 'Добавить группу', new_institute_group_path(@institute), class: 'btn btn-default' %></h2>
+    <% @groups.each do |group| %>
+      <%= link_to institute_group_path(@institute, group), class: 'panel panel-default' do %>
+        <div class="panel-body">
+          <%= group.number %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
