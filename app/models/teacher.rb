@@ -4,4 +4,8 @@ class Teacher < ApplicationRecord
   has_many :lessons, through: :items
 
   validates_presence_of :name, message: 'ФИО не может быть пустым'
+
+  def to_s
+    self.name
+  end
 end

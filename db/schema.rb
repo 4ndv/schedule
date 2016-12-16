@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216105409) do
+ActiveRecord::Schema.define(version: 20161216114415) do
 
   create_table "groups", force: :cascade do |t|
     t.integer  "institute_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20161216105409) do
     t.integer  "week_number"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "day_number"
     t.index ["group_id"], name: "index_items_on_group_id"
     t.index ["lesson_id"], name: "index_items_on_lesson_id"
     t.index ["teacher_id"], name: "index_items_on_teacher_id"

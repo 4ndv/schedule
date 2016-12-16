@@ -6,4 +6,8 @@ class Group < ApplicationRecord
   has_many :teachers, through: :items
 
   validates_presence_of :number, message: 'Номер не может быть пустым'
+
+  def schedule
+    self.items.order(:position, :day_number).group_by(&:week_number)
+  end
 end

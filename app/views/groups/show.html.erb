@@ -6,7 +6,29 @@
   </div>
   <div class="col-md-12">
     <h2>Расписание <%= link_to 'Добавить запись', new_institute_group_item_path(@institute, @group), class: 'btn btn-default' %></h2>
-    <% @schedule.each do |week, item| %>
+    <% @schedule.each do |week, items| %>
+      <h3><%= week_by_number(week) %> неделя</h3>
+      <table class="table">
+        <thead>
+          <th>День недели</th>
+          <th>Пара</th>
+          <th>Предмет</th>
+          <th>Преподаватель</th>
+          <th>Действия</th>
+        </thead>
+        <% items.each do |item| %>
+          <tr>
+            <th><%= day_by_number(item.day_number) %></th>
+            <th><%= item.position %></th>
+            <td><%= link_to item.lesson, lesson_path(item.lesson) %></td>
+            <td><%= link_to item.teacher, teacher_path(item.teacher) %></td>
+            <td>
+              <%= link_to 'Изменить', edit_institute_group_item_path(@institute, @group, item), class: 'btn btn-default' %>
+              <%= link_to 'Удалить', [@institute, @group, item], class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены? Действие необратимо, все связанные данные также будут удалены' } %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
     <% end %>
   </div>
 </div>

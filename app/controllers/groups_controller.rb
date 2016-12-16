@@ -1,10 +1,10 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :set_institute, only: [:new, :show, :edit, :update, :destroy]
+  before_action :set_institute, only: [:new, :show, :edit, :create, :update, :destroy]
 
   # GET /groups/1
   def show
-    @schedule = []
+    @schedule = @group.schedule
   end
 
   # GET /groups/new

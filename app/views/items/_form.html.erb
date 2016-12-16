@@ -1,17 +1,9 @@
-<%= form_for(item) do |f| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<%= form_for [@institute, @group, item], layout: :basic do |f| %>
+  <%= f.select :lesson_id, options_from_collection_for_select(Lesson.all, :id, :name, selected: f.object.lesson_id), include_blank: true, label: 'Предмет' %>
+  <%= f.select :teacher_id, options_from_collection_for_select(Teacher.all, :id, :name, selected: f.object.teacher_id), include_blank: true, label: 'Преподаватель' %>
+  <%= f.number_field :position, label: 'Номер пары', placeholder: 'Число от 1 до 20' %>
+  <%= f.select :week_number, week_options(f.object.week_number), label: 'Неделя', placeholder: '1 или 2' %>
+  <%= f.select :day_number, days_options(f.object.day_number), include_blank: true, label: 'День недели' %>
 
-      <ul>
-      <% item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Отправить' %>
 <% end %>
