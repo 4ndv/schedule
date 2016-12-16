@@ -4,4 +4,34 @@
       <h1><%= @teacher.name %> <%= link_to 'Изменить', edit_teacher_path(@teacher), class: 'btn btn-default' %> <%= link_to 'Удалить', @teacher, class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены? Действие необратимо, все связанные данные также будут удалены' } %></h1>
     </div>
   </div>
+  <div class="col-md-12">
+    <h2>Предметы</h2>
+      <% @teacher.lessons.distinct.each do |lesson| %>
+        <%= link_to lesson, class: 'panel panel-default' do %>
+          <div class="panel-body">
+            <%= lesson %>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+  <div class="col-md-12">
+    <h2>Группы</h2>
+    <% @teacher.groups.distinct.each do |group| %>
+      <%= link_to [group.institute, group], class: 'panel panel-default' do %>
+        <div class="panel-body">
+          <%= group.number %> / <%= group.institute %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-12">
+    <h2>Институты</h2>
+    <% @teacher.institutes.each do |institute| %>
+      <%= link_to institute, class: 'panel panel-default' do %>
+        <div class="panel-body">
+          <%= institute %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

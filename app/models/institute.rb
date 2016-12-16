@@ -4,4 +4,8 @@ class Institute < ApplicationRecord
   has_many :teachers, through: :lessons
 
   validates_presence_of :name, message: 'Имя не может быть пустым'
+
+  def to_s
+    self.name
+  end
 end

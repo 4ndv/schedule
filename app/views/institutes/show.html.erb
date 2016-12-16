@@ -9,7 +9,7 @@
     <% @groups.each do |group| %>
       <%= link_to institute_group_path(@institute, group), class: 'panel panel-default' do %>
         <div class="panel-body">
-          <%= group.number %>
+          <%= group %>
         </div>
       <% end %>
     <% end %>
