@@ -26,29 +26,25 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-<!--           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Навигация</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button> -->
+          </button>
           <a class="navbar-brand" href="/">Расписание</a>
         </div>
-        <!-- <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div> -->
+        <div id="navbar" class="navbar-collapse collapse">
+          <div class="nav navbar-nav">
+            <li><%= link_to 'Институты', institutes_path %></li>
+            <li><%= link_to 'Преподаватели', teachers_path %></li>
+            <li><%= link_to 'Предметы', lessons_path %></li>
+          </div>
+        </div>
       </div>
     </nav>
 
-    <% if current_page?(root_path) || current_page?(institutes_path) %>
+    <% if current_page?(root_path) %>
       <div class="jumbotron">
         <div class="container">
           <h1>Расписание</h1>

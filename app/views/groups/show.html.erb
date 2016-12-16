@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Группа <%= @group.number %> / <%= @institute.name %> <%= link_to 'Изменить', edit_institute_group_path(@institute, @group), class: 'btn btn-default' %> <%= link_to 'Удалить', [@institute, @group], class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены? Действие необратимо, все связанные данные также будут удалены' } %></h1>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <h2>Расписание <%= link_to 'Добавить запись', new_institute_group_item_path(@institute, @group), class: 'btn btn-default' %></h2>
+    <% @schedule.each do |week, item| %>
+    <% end %>
+  </div>
+</div>

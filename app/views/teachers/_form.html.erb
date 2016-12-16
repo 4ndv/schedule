@@ -1,17 +1,5 @@
-<%= form_for(teacher) do |f| %>
-  <% if teacher.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+<%= form_for teacher, layout: :basic do |f| %>
+  <%= f.text_field :name, label: 'Фамилия Имя Отчество', placeholder: 'Например, Иванов Иван Иванович' %>
 
-      <ul>
-      <% teacher.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Отправить' %>
 <% end %>

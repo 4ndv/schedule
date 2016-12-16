@@ -1,5 +1,10 @@
-<h1>New Item</h1>
-
-<%= render 'form', item: @item %>
-
-<%= link_to 'Back', items_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Добавление записи для группы <%= @group.number %> / <%= @institute.name %></h1>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <%= render 'form', group: @group %>
+  </div>
+</div>

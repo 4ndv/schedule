@@ -1,5 +1,10 @@
-<h1>New Teacher</h1>
-
-<%= render 'form', teacher: @teacher %>
-
-<%= link_to 'Back', teachers_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Добавление преподавателя</h1>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <%= render 'form', teacher: @teacher %>
+  </div>
+</div>

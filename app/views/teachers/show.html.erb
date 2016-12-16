@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1><%= @teacher.name %> <%= link_to 'Изменить', edit_teacher_path(@teacher), class: 'btn btn-default' %> <%= link_to 'Удалить', @teacher, class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены? Действие необратимо, все связанные данные также будут удалены' } %></h1>
+    </div>
+  </div>
+</div>

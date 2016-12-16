@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1
   def show
+    @schedule = []
   end
 
   # GET /groups/new
@@ -20,7 +21,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      redirect_to @group, notice: 'Группа добавлена.'
+      redirect_to institute_group_url(@group), notice: 'Группа добавлена.'
     else
       render :new
     end
@@ -29,7 +30,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   def update
     if @group.update(group_params)
-      redirect_to @group, notice: 'Группа изменена.'
+      redirect_to institute_group_url(@group), notice: 'Группа изменена.'
     else
       render :edit
     end
@@ -39,13 +40,13 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
 
-    redirect_to groups_url, notice: 'Группа удалена.'
+    redirect_to institute_url(@institute), notice: 'Группа удалена.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:group_id])
+      @group = Group.find(params[:id])
     end
 
     def set_institute
@@ -54,6 +55,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.fetch(:group, {})
+      params.fetch(:group, {}).permit(:number).merge(institute_id: params[:institute_id])
     end
 end

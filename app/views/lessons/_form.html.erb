@@ -1,17 +1,5 @@
-<%= form_for(lesson) do |f| %>
-  <% if lesson.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+<%= form_for lesson, layout: :basic do |f| %>
+  <%= f.text_field :name, label: 'Название предмета', placeholder: 'Например, Математика' %>
 
-      <ul>
-      <% lesson.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Отправить' %>
 <% end %>

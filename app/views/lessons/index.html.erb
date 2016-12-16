@@ -1,25 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Предметы <%= link_to 'Добавить предмет', new_lesson_path, class: 'btn btn-default' %></h1>
+    </div>
 
-<h1>Lessons</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @lessons.each do |lesson| %>
-      <tr>
-        <td><%= link_to 'Show', lesson %></td>
-        <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
-        <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= link_to lesson_path(lesson), class: 'panel panel-default' do %>
+        <div class="panel-body">
+          <%= lesson.name %>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Lesson', new_lesson_path %>
+  </div>
+</div>
