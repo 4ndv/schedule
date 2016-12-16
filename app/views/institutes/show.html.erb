@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_institute_path(@institute) %> |
-<%= link_to 'Back', institutes_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1><%= @institute.name %> <%= link_to 'Изменить', edit_institute_path(@institute), class: 'btn btn-default' %></h1>
+    </div>
+  </div>
+</div>

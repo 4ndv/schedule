@@ -1,6 +1,10 @@
-<h1>Editing Institute</h1>
-
-<%= render 'form', institute: @institute %>
-
-<%= link_to 'Show', @institute %> |
-<%= link_to 'Back', institutes_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Редактирование института <%= link_to 'Вернуться к институту', institute_path(@institute), class: 'btn btn-default' %> <%= link_to 'Удалить институт', @institute, class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены? Действие необратимо, все связанные данные также будут удалены' } %></h1>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <%= render 'form', institute: @institute %>
+  </div>
+</div>
