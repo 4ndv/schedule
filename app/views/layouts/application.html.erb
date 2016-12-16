@@ -9,10 +9,11 @@
 
     <%= csrf_meta_tags %>
 
+    <%= stylesheet_link_tag bootstrap_css %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= stylesheet_link_tag bootstrap_theme_css %>
     <%= javascript_include_tag bootstrap_js %>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -31,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Расписание</a>
+          <a class="navbar-brand" href="/">Расписание</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -43,7 +44,7 @@
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
-        </div><!--/.navbar-collapse -->
+        </div>
       </div>
     </nav>
 
@@ -82,11 +83,12 @@
       <%= yield %>  
     </div>
 
+    <div class="container">
       <hr>
 
       <footer>
         <p>&copy; 2016 Andrey Viktorov</p>
       </footer>
-    </div> <!-- /container -->
+    </div>
   </body>
 </html>
