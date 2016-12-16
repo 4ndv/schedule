@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      redirect_to institute_group_url(@group), notice: 'Группа добавлена.'
+      redirect_to institute_group_url(@institute, @group), notice: 'Группа добавлена.'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   def update
     if @group.update(group_params)
-      redirect_to institute_group_url(@group), notice: 'Группа изменена.'
+      redirect_to institute_group_url(@institute, @group), notice: 'Группа изменена.'
     else
       render :edit
     end

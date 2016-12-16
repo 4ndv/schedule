@@ -6,7 +6,7 @@ class Teacher < ApplicationRecord
   validates_presence_of :name, message: 'ФИО не может быть пустым'
 
   def institutes
-    self.groups.distinct.to_a.map(&:institute)
+    self.groups.select('DISTINCT groups.institute_id').to_a.map(&:institute)
   end
 
   def to_s
