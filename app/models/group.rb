@@ -15,10 +15,20 @@ class Group < ApplicationRecord
     les = {}
 
     self.lessons.each do |elem|
-      les[elem] = self.items.joins(:teacher).where(lesson: elem).select('distinct items.teacher_id').map(&:teacher)
+      les[elem] = self.items.where(lesson: elem).select('distinct items.teacher_id').map(&:teacher)
     end
 
     les
+  end
+
+  def teachers_and_their_lessons
+    teac = {}
+
+    self.teachers.each do |elem|
+      teac[elem] = self.items.where(teacher: elem).select('distinct items.lesson_id').map(&:lesson)
+    end
+
+    teac
   end
 
   def to_s

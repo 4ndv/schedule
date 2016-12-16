@@ -34,11 +34,24 @@
   <div class="col-md-12">
     <h2>Предметы</h2>
     <% @group.lessons_and_their_teachers.each do |lesson, teachers| %>
-      <h3><%= lesson %></h3>
+      <h4><%= lesson %></h4>
       <% teachers.each do |teacher| %>
         <%= link_to teacher_path(teacher), class: 'panel panel-default' do %>
           <div class="panel-body">
-            <%= teacher.name %>
+            <%= teacher %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-12">
+    <h2>Преподаватели</h2>
+    <% @group.teachers_and_their_lessons.each do |teacher, lessons| %>
+      <h4><%= teacher %></h4>
+      <% lessons.each do |lesson| %>
+        <%= link_to lesson_path(lesson), class: 'panel panel-default' do %>
+          <div class="panel-body">
+            <%= lesson %>
           </div>
         <% end %>
       <% end %>
